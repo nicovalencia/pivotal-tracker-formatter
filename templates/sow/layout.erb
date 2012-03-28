@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Statement Of Work</title>
+    <style><%= @style %></style>
+    <meta charset="utf-8">
+  </head>
+  <body>
+
+    <header>
+      <h1>2.0 (cont.) Company Responsibilities</h1>
+      <p>Company will be responsible for developing the stories:</p>
+    </header>
+
+    <ul>
+    <% @stories.each do |story| %>
+      <li>
+        <h2><span class="id">[<%= story[:id] %>]</span> <span>(<%= story[:type] %>)</span> <%= story[:name] %></h2>
+        <span class="points">( <%= story[:points] %>pts )</span>
+        <p class="description"><%= story[:description] %></p>
+
+        <% if story[:tasks] %>
+          <ul class="tasks">
+          <% story[:tasks].each do |task| %>
+            <li><%= task[:description] %></li>
+          <% end %>
+          </ul>
+        <% end %>
+
+      </li>
+    <% end %>
+    </ul>
+
+  </body>
+</html>
+
