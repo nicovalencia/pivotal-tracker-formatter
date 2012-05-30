@@ -36,6 +36,7 @@ class Parser
         :owned_by        => story.shift,
         :description     => story.shift,
         :url             => story.shift,
+        :comment         => story.shift,
         :tasks           => []
       }
 
