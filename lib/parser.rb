@@ -14,7 +14,13 @@ class Parser
     csv = CSV.read(@csv, { :encoding => "UTF-8" })
 
     # remove headers
-    csv.slice!(0)
+    headers = csv.slice!(0)
+
+    # count comment columns
+    comment_count = 0
+    headers.each do |column|
+      comment_count += 1 if column == "Comment"
+    end
 
     # build stories hash
     csv.each do |story|
@@ -36,10 +42,16 @@ class Parser
         :owned_by        => story.shift,
         :description     => story.shift,
         :url             => story.shift,
-        :comment         => story.shift,
+        :comments         => [],
         :tasks           => []
       }
 
+      # append comments
+      comment_count.times do |i|
+        item[:comments].push(story.shift)
+      end
+
+      # append tasks
       story.each_slice(2) do |task|
         item[:tasks].push({
           :description => task[0],
