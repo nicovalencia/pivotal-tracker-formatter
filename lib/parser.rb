@@ -32,7 +32,7 @@ class Parser
       item = {
         :id              => story.shift,
         :name            => story.shift,
-        :tags            => story.shift,
+        :labels          => story.shift,
         :iteration       => story.shift,
         :iteration_start => story.shift,
         :iteration_end   => story.shift,

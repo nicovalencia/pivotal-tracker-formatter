@@ -15,7 +15,7 @@
     <ul>
     <% @stories.each do |story| %>
       <li>
-        <h2><span class="id">[<%= story[:id] %>]</span> <span>(<%= story[:type] %>)</span> <%= story[:name] %></h2>
+        <h2><span class="id">[<%= story[:id] %>]</span> <span>(<%= story[:type] %> - <span class="labels"><%= story[:labels] %></span>)</span> <%= story[:name] %></h2>
         <span class="points">( <%= story[:points] %>pts )</span>
         <p class="description"><%= story[:description] %></p>
 
