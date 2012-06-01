@@ -1,6 +1,7 @@
 class Parser
 
-  def initialize(csv, save_location)
+  def initialize(csv, save_location, options)
+    @label = options[:label]
     @csv = csv
     @save_location = save_location
     @stories = []
@@ -24,7 +25,10 @@ class Parser
 
     # build stories hash
     csv.each do |story|
-      
+
+      # only include label
+      next if @label && !story[2].include?(@label)
+
       item = {
         :id              => story.shift,
         :name            => story.shift,
