@@ -1,9 +1,28 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    builder (3.0.0)
+    happymapper (0.4.0)
+      libxml-ruby (~> 2.0)
+    libxml-ruby (2.3.3)
+    mime-types (1.19)
+    nokogiri (1.5.5)
+    pivotal-tracker (0.5.4)
+      builder
+      builder
+      happymapper (>= 0.3.2)
+      happymapper (>= 0.3.2)
+      nokogiri (>= 1.4.3)
+      nokogiri (~> 1.4)
+      rest-client (~> 1.6.0)
+      rest-client (~> 1.6.0)
     rack (1.4.1)
     rack-protection (1.2.0)
       rack
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
+    shotgun (0.9)
+      rack (>= 1.0)
     sinatra (1.3.2)
       rack (~> 1.3, >= 1.3.6)
       rack-protection (~> 1.2)
@@ -14,4 +33,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  pivotal-tracker
+  shotgun
   sinatra
