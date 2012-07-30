@@ -68,4 +68,3 @@ get '/projects/:id/stories' do
 
   return stories.to_json
 end
-

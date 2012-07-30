@@ -2,22 +2,70 @@
 <html>
   <head>
     <title>Pivotal Tracker Formatter</title>
+    <link href="/css/index.css" media="screen" rel="stylesheet" type="text/css" />
   </head>
   <body>
 
-    <h1>Pivotal Tracker Formatter</h1>
-    <h2>by Nico Valencia @ Quickleft</h2>
+    <script id="handlebars-story-group" type="text/x-handlebars-template">
+      <h3>{{state}}</h3>
+      <ul>
+      {{#each stories}}
+        <li>
+          <dl>
+            <dt>{{id}} - {{name}}</dt>
+            <dd>{{description}}</dd>
 
-    <form id="js-project-select-form">
-      <select>
-        <option>Loading...</option>
-      </select>
-      <input type="submit" value="Submit" disabled="disabled" />
-    </form>
+            <dt>Estimate</dt>
+            <dd>{{estimate}}</dd>
+
+            <dt>Current State</dt>
+            <dd>{{current_state}}</dd>
+
+            <dt>Labels</dt>
+            <dd>{{labels}}</dd>
+
+            <dt>Owned By</dt>
+            <ddd>{{owned_by}}</dd>
+
+            <dt>Requested By</dt>
+            <dd>{{requested_by}}</dd>
+
+            <dt>Story Type</dt>
+            <dd>{{story_type}}</dd>
+
+            <dt>Link</dt>
+            <dd><a href="{{url}}" target="_blank">{{url}}</a></dd>
+          </dl>
+        </li>
+      {{/each}}
+      </ul>
+    </script>
+
+    <script id="handlebars-project-summary" type="text/x-handlebars-template">
+      <h3>You have finished {{finished_points}} out of {{total_points}} points.</h3>
+    </script>
+
+    <div id="container">
+      <header>
+        <h1>Pivotal Tracker Formatter</h1>
+        <h2>by Nico Valencia @ Quickleft</h2>
+      </header>
+
+      <form id="js-project-select-form">
+        <select>
+          <option>Loading...</option>
+        </select>
+        <input type="submit" value="Submit" disabled="disabled" />
+      </form>
+
+      <ul id="js-stories"></ul>
+    </div>
 
     <div id="js-loader" style="display:none;">Loading...</div>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="/js/handlebars-1.0.0.beta.6.js"></script>
+    <script src="/js/underscore-1.3.3.js"></script>
     <script src="/js/index.js"></script>
 
   </body>
