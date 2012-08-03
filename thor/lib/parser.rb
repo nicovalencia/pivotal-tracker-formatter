@@ -1,3 +1,5 @@
+require 'pry'
+
 class Parser
 
   def initialize(csv, save_location, options)
@@ -5,7 +7,14 @@ class Parser
     @csv = csv
     @save_location = save_location
     @stories = []
-    @style = File.read("templates/sow/style.css")
+    @template = options[:template] || "sow"
+
+
+    @style = File.read("templates/#{@template}/style.css")
+
+    @categories = options[:categories] ? options[:categories].split(',') : []
+    @filtered_stories = {}
+
     parse()
   end
 
@@ -67,6 +76,14 @@ class Parser
 
     end
 
+    build_groups() if !@categories.empty?
+
+  end
+
+  def build_groups
+    @categories.each do |category|
+      @filtered_stories[category] = @stories.find_all {|story| story[:labels].match(category)}
+    end
   end
 
   def write(template)

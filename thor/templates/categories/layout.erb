@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Project Categories</title>
+    <style><%= @style %></style>
+    <meta charset="utf-8">
+  </head>
+  <body>
+
+    <header>
+      <h1>Project Stories</h1>
+      <p>Stories are grouped by top level categories:</p>
+    </header>
+
+    <% @categories.each do |category| %>
+      <h3><%= category.to_s %></h3>
+      <ul>
+        <% @filtered_stories[category].each do |story| %>
+          <li>
+            <h2><span class="id">[<%= story[:id] %>]</span> <span>(<%= story[:type] %> - <span class="labels"><%= story[:labels] %></span>)</span> <%= story[:name] %></h2>
+            <span class="points">( <%= story[:points] %>pts )</span>
+            <p class="description"><%= story[:description] %></p>
+
+            <% if story[:tasks] %>
+              <ul class="tasks">
+              <% story[:tasks].each do |task| %>
+                <li><%= task[:description] %></li>
+              <% end %>
+              </ul>
+            <% end %>
+
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+
+  </body>
+</html>
+

@@ -1,0 +1,73 @@
+body {
+  font-family: "Helvetica", "Arial", sans-serif;
+}
+
+li {
+  width:100%;
+  float:left;
+  clear:both;
+  list-style:none;
+  padding-bottom:10px;
+}
+
+header h1 {
+  margin-left:40px;
+  font-size:18px;
+}
+
+header p {
+  margin-left:40px;
+  padding:20px 0;
+  font-size:10px;
+  font-style:italic;
+}
+
+h2 {
+  float:left;
+  width:80%;
+  font-size:10px;
+  font-weight:normal;
+  margin:0;
+}
+
+h2 .id {
+  font-weight:bold;
+}
+
+h2 .labels {
+  color:#666;
+  font-style:italic;
+}
+
+h3 {
+  padding-left:20px;
+  text-transform:capitalize;
+}
+
+.points {
+  float:right;
+  width:20%;
+  font-size:12px;
+}
+
+p.description {
+  float:left;
+  clear:both;
+  font-size:10px;
+  padding:10px 50px 0 0;
+  margin-top:5px;
+  border-top:1px solid #ccc;
+  width:80%;
+  font-style:italic;
+}
+
+ul.tasks {
+  float:left;
+  clear:both;
+  font-size:10px;
+}
+
+ul.tasks li {
+  list-style:square;
+}
+
